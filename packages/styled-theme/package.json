@@ -4,7 +4,8 @@
   "main": "./index.ts",
   "dependencies": {
     "react": "^18.2.0",
-    "styled-components": "^6.1.14"
+    "styled-components": "^6.1.14",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.10",
