@@ -1,5 +1,5 @@
 {
-  "name": "icon",
+  "name": "@hideeer/icon",
   "version": "1.0.0",
   "description": "",
   "main": "./index.ts",
@@ -7,6 +7,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "styled-components": "^6.1.14",
+    "typescript": "^5.5.4",
     "tsconfig": "workspace:*"
   },
   "devDependencies": {

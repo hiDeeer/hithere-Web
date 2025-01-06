@@ -11,7 +11,11 @@
       "dev": {
         "cache": false,
         "persistent": true
+      },
+      "storybook": {
+        "dependsOn": [],
+        "outputs": [],
+        "inputs": ["./packages/ui"]
       }
     }
   }
-  
