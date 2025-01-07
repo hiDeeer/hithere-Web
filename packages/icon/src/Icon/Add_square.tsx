@@ -2,7 +2,7 @@ import React from "react";
 import { IconProps } from "../type";
 
 
-const PlusSquareIcon = (props:IconProps) => {
+const PlusSquareIcon = ({ color = "#000", ...props }:IconProps) => {
   return (
     <svg
       width="24"
@@ -14,19 +14,19 @@ const PlusSquareIcon = (props:IconProps) => {
     >
       <path
         d="M3 7C3 4.79086 4.79086 3 7 3H17C19.2091 3 21 4.79086 21 7V17C21 19.2091 19.2091 21 17 21H7C4.79086 21 3 19.2091 3 17V7Z"
-        stroke="black"
+        stroke={color!}
         strokeWidth="2"
       />
       <path
         d="M12 8L12 16"
-        stroke="black"
+        stroke={color!}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M16 12L8 12"
-        stroke="black"
+        stroke={color!}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
