@@ -1,40 +1,106 @@
-import React,{ ChangeEventHandler,KeyboardEventHandler,} from "react";
-import styled from "styled-components"
+import React, { ChangeEventHandler, KeyboardEventHandler, useRef, useState } from "react";
+import styled,{useTheme} from "styled-components";
+import { OpenEye, CloseEye, CloseRing } from "@hideeer/icon";
+import {hexToRgba} from "@hideeer/util";
 
 type InputType = "text" | "password";
+type Type = "Default" | "Disabled" | "Active" | "Error";
 
 interface TextFieldProps {
-    id:string;
-    name:string;
-    type: InputType;
-    value:string;
-    placeholder?: string;
-    ref: ChangeEventHandler<HTMLInputElement>;
-    keydown: KeyboardEventHandler<HTMLInputElement>;
-    isDisabled?: boolean;
-    supportingText?: string;
+  id: string;
+  name: string;
+  inputType: InputType;
+  Type?: Type;
+  value: string;
+  placeholder?: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  onKeyDown: KeyboardEventHandler<HTMLInputElement>;
+  Label?: string;
+  errorMessage?: string;
+  
+  isIcon?:boolean;
 }
-
 
 export const TextField = ({
-    id,
-    name,
-    type,
-    value,
-    ref,
-    isDisabled,
-    keydown,
-    supportingText
-}:TextFieldProps) =>{
-return(
-    <StyledTextField $isActive>  
-    
-    </StyledTextField>
-)
-}
+  id,
+  name,
+  inputType,
+  Type = "Default",
+  value: initialValue,
+  onChange,
+  onKeyDown,
+  placeholder,
+  Label,
+  errorMessage,
+  isIcon=false,
+}: TextFieldProps) => {
+  const theme = useTheme();
+  const [showPassword, setShowPassword] = useState(false);
+  const [isfocus ,setIsFocus] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const changePasswordState = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const handleClear = () => {
+    if (inputRef.current) {
+      inputRef.current.value = ""; 
+      inputRef.current.focus(); 
+    }
+  };
+
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    onChange(e); 
+  };
+
+  return (
+    <div style={{ position: "relative" }}>
+      {Label !== "" ? <StyledSupportingText >{Label}</StyledSupportingText> : ""}
+      <StyledTextField
+       isError={Type=="Error"}
+       isFocused={isfocus}
+       isDisabled={Type=="Disabled"}
+        >
+        <Text_Field
+          id={id}
+          name={name}
+          ref={inputRef} 
+          defaultValue={initialValue}
+          onChange={handleInputChange}
+          placeholder={placeholder}
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(false)}
+          isDisabled={Type=="Disabled"}
+          isActive={Type=="Active"}
+          type={
+            inputType === "password" ? (showPassword ? "text" : "password") : "text"
+          }
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              onKeyDown(e);
+            }
+          }}
+        />
+        {isIcon ? inputType === "text" ? (
+            <CloseRing onClick={handleClear} color={Type=="Error" ? theme.StatusNegative :theme.LineNormal}/>
+        ) : showPassword ? (
+          <OpenEye onClick={changePasswordState} />
+        ) : (
+          <CloseEye onClick={changePasswordState} />
+        ) : ""}
+      </StyledTextField>
+      {Type=="Error" ? <ErrorMessage>{errorMessage}</ErrorMessage> : ""}
+    </div>
+  );
+};
 
 
-const StyledTextField =styled.div<{ $isActive: boolean }>`
+const StyledTextField = styled.div<{
+  isFocused:boolean;
+  isError:boolean;
+  isDisabled:boolean;
+  }>`
   display: flex;
   height: 48px;
   justify-content: space-between;
@@ -42,8 +108,17 @@ const StyledTextField =styled.div<{ $isActive: boolean }>`
   align-items: center;
   flex-shrink: 0;
   border-radius: 12px;
-  border-color: ${({ $isActive }) => ($isActive ? "1A9A18" : "#c4c4c4")};
-  border: 1px solid ;
+  border: 1px solid;
+  border-color: ${({ isFocused,isError,theme }) => isFocused ? theme.PrimaryNormal : isError ? theme.StatusNegative : theme.LineNormal};
+  background: ${({ isFocused, isError, isDisabled, theme }) =>
+    isFocused
+      ? hexToRgba('#FFA800', 0.03)
+      : isError
+      ? hexToRgba('#FF4242', 0.03)
+      : isDisabled
+      ? theme.FillNormal
+      : theme.BackgroundNormal};
+  
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px #fff inset;
     -webkit-text-fill-color: #000;
@@ -62,4 +137,42 @@ const StyledTextField =styled.div<{ $isActive: boolean }>`
     width: 24px;
     height: 24px;
   }
-`
+`;
+
+const Text_Field = styled.input<{
+  isDisabled:boolean;
+  isActive:boolean;
+  }>`
+  &::placeholder {
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    color: ${({  isDisabled , isActive, theme }) => isActive ? theme.LabelNeutral : isDisabled ? theme.LabelDisable : theme.LabelNeutral};
+  }
+  background-color: transparent;
+  color: ${({ isDisabled, isActive, theme }) => isActive ? theme.LabelNeutral : isDisabled ? theme.LabelDisable : theme.LabelNeutral };
+  display: flex;
+  width: 80%;
+  height: 100%;
+  padding: 10px 20px 10px 10px;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  box-sizing: border-box;
+`;
+
+const StyledSupportingText = styled.span`
+  color: ${({ theme }) => theme.LabelAssistive};
+`;
+
+const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme.StatusNegative};
+`;
+
+

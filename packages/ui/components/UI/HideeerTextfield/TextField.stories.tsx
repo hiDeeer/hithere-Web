@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
+import type { Meta } from "@storybook/react";
 import { TextField } from "./TextField";
+import { ifError } from "assert";
 
 export default {
   title: "ui/TextField",
@@ -15,9 +15,12 @@ export default {
 export const StyledTextField = {
   args: {
     id: "text",
-    type: "text",
+    inputType: "text",
+    Type: "Default",
     name: "textField",
-    value: "Input text",
+    value: "",
+    placeholder:"Text",
+    Label:"Label",
     ref: () => alert("값 변경"),
     keydown: (e: { key: any; }) => alert(`${e.key}키 누름`),
   },
