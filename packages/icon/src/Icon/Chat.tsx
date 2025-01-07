@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "../type";
 
-const CustomIcon = ({ color = "#000", ...props }:IconProps) => {
+export const CustomIcon = ({ color = "#000", ...props }:IconProps) => {
   return (
     <svg
       width="24"
@@ -33,5 +33,3 @@ const CustomIcon = ({ color = "#000", ...props }:IconProps) => {
     </svg>
   );
 };
-
-export default CustomIcon;

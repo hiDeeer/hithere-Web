@@ -2,7 +2,7 @@ import React from "react";
 import { IconProps } from "../type";
 
 
-const PlusSquareIcon = ({ color = "#000", ...props }:IconProps) => {
+export const PlusSquareIcon = ({ color = "#000", ...props }:IconProps) => {
   return (
     <svg
       width="24"
@@ -34,5 +34,3 @@ const PlusSquareIcon = ({ color = "#000", ...props }:IconProps) => {
     </svg>
   );
 };
-
-export default PlusSquareIcon;

@@ -9,4 +9,5 @@ export * from "./src/Icon/close_ring";
 export * from "./src/Icon/openEye";
 export * from "./src/Icon/sound_max";
 export * from "./src/Icon/world";
+export * from "./src/Icon/arrowDown";
 
