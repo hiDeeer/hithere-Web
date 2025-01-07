@@ -1,6 +1,7 @@
 {
   "name": "@hideeer/styled-theme",
   "version": "1.0.0",
+  "types": "./index.ts",
   "main": "./index.ts",
   "dependencies": {
     "react": "^18.2.0",
