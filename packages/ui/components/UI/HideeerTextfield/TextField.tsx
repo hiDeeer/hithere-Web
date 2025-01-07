@@ -85,9 +85,9 @@ export const TextField = ({
         {isIcon ? inputType === "text" ? (
             <CloseRing onClick={handleClear} color={Type=="Error" ? theme.StatusNegative :theme.LineNormal}/>
         ) : showPassword ? (
-          <OpenEye onClick={changePasswordState} />
+          <OpenEye onClick={changePasswordState} color={Type=="Error" ? theme.StatusNegative :theme.LineNormal} />
         ) : (
-          <CloseEye onClick={changePasswordState} />
+          <CloseEye onClick={changePasswordState} color={Type=="Error" ? theme.StatusNegative :theme.LineNormal}/>
         ) : ""}
       </StyledTextField>
       {Type=="Error" ? <ErrorMessage>{errorMessage}</ErrorMessage> : ""}
