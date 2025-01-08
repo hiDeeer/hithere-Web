@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import styled,{css} from "styled-components";
-import {useOutsideClick,useBooleanState} from "@hideeer/util";
-import {ArrowDown} from "@hideeer/icon";
+import {useOutsideClick,useBooleanState} from "@hithere/util";
+import {ArrowDown} from "@hithere/icon";
 import {HiDeerShape} from "../../Layout/Shap";
 
 export interface SelectProps{

@@ -1,9 +1,9 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
-import { HideeerToastContainerProps } from "./HideeerToastContainer.type";
+import { HiThereToastContainerProps } from "./HiThereToastContainer.type";
 
 export const HideeerToastContainer = ({
   ...toastContainerProps
-}: HideeerToastContainerProps) => {
+}: HiThereToastContainerProps) => {
   return <ToastContainer {...toastContainerProps} />;
 };

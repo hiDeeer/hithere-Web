@@ -1,6 +1,6 @@
 import ReactToastifyAdaptor, { ToastService } from "./ToastService";
 
-class HideeerToastService {
+class HiThereToastService {
   constructor(private toastService: ToastService) {}
 
   public showSuccess(message: string) {
@@ -16,4 +16,4 @@ class HideeerToastService {
   }
 }
 
-export const HideeerToast = new HideeerToastService(new ReactToastifyAdaptor());
+export const HiThereToast = new HiThereToastService(new ReactToastifyAdaptor());
