@@ -12,4 +12,4 @@ export * from "./src/Icon/world";
 export * from "./src/Icon/arrowDown";
 
 
-export * from "./src/Logo/";
+// export * from "./src/Logo";
