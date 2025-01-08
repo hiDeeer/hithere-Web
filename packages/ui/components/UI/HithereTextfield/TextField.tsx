@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler, KeyboardEventHandler, useRef, useState } from "react";
 import styled,{useTheme} from "styled-components";
-import { OpenEye, CloseEye, CloseRing } from "@hideeer/icon";
-import {hexToRgba} from "@hideeer/util";
+import { OpenEye, CloseEye, CloseRing } from "@hithere/icon";
+import {hexToRgba} from "@hithere/util";
 
 type InputType = "text" | "password";
 type Type = "Default" | "Disabled" | "Active" | "Error";
