@@ -3,13 +3,13 @@ export * from "./src/Icon/Chat";
 export * from "./src/Icon/Favorite";
 export * from "./src/Icon/Home";
 export * from "./src/Icon/Trash";
-export * from "./src/Icon/Check_ring_rounds";
+export * from "./src/Icon/Check_ring_round";
 export * from "./src/Icon/CloseEye";
-export * from "./src/Icon/Close_rings";
-export * from "./src/Icon/OpenEyes";
-export * from "./src/Icon/Sound_maxs";
-export * from "./src/Icon/Worlds";
-export * from "./src/Icon/arrowDown";
+export * from "./src/Icon/Close_ring";
+export * from "./src/Icon/OpenEye";
+export * from "./src/Icon/Sound_max";
+export * from "./src/Icon/World";
+export * from "./src/Icon/ArrowDown";
 
 
 export * from "./src/Logo/LoginLogo";
