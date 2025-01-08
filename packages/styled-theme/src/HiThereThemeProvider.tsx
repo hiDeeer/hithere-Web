@@ -11,8 +11,7 @@ interface Props {
   theme: "LIGHT" | "DARK";
 }
 
-export const HiThereThemeProvider = ({ children }: Props) => {
-  const { theme, toggleTheme } = useTheme();
+export const HiThereThemeProvider = ({ children,theme }: Props) => {
 
   return (
     <ThemeProvider theme={theme === "LIGHT" ? lightTheme : darkTheme}>

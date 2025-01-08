@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { lightTheme } from "@hideeer/styled-theme";
+import { lightTheme } from "@hithere/styled-theme";
 
-export const SignContainer = styled.div`
+export const AuthContainer = styled.div`
     display: flex;
     width: 100%;
     height: 100vh;
     
 `
-export const SignLogoView = styled.div`
+export const AuthLogoView = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
@@ -21,4 +21,13 @@ export const SignLogoView = styled.div`
         left: 5%;
         bottom: 20px;
     }
+`
+
+export const AuthComponents = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 40px;
 `

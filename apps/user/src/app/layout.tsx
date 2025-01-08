@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import QueryClientProvider from "@/components/common/provider/query-provider";
 import Layout from "@/components/common/layout";
+import { HiThereThemeProvider } from "@hithere/styled-theme";
+
 export const metadata: Metadata = {
-  title: "HiDeeer",
-  description: "HiDeeer",
+  title: "HiThere",
+  description: "HiThere",
 };
 
 export default function RootLayout({
@@ -11,13 +13,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme = "LIGHT"
+
   return (
     <html lang="ko">
-      <body>
+      <body>       
         <QueryClientProvider>
-          <Layout>
-            {children}
-          </Layout>
+          <HiThereThemeProvider theme={theme}>
+              <Layout>
+                {children}
+              </Layout>
+            </HiThereThemeProvider>
         </QueryClientProvider>
       </body>
     </html>

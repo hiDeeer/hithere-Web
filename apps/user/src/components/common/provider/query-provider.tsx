@@ -2,13 +2,15 @@
 
 import { ReactNode, useState } from "react";
 import { QueryClient, QueryClientProvider as DeerQueryClientProvider } from "react-query";
-import { GlobalStyle } from "@hideeer/styled-theme";
+
+
 
 interface Props {
   children: ReactNode;
 }
 
 const QueryClientProvider = ({ children }: Props) => {
+  
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -23,8 +25,7 @@ const QueryClientProvider = ({ children }: Props) => {
 
   return (
     <DeerQueryClientProvider client={queryClient}>
-      <GlobalStyle />
-      {children}
+          {children}      
     </DeerQueryClientProvider>
   );
 };
