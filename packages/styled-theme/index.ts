@@ -1,3 +1,3 @@
 export * from "./src/HiDeerTheme";
 export * from "./src/HiDeerThemeProvider";
-export * from "./src/GlobalStyle";
+export { default as GlobalStyle } from "./src/GlobalStyle";

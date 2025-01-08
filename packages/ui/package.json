@@ -1,5 +1,5 @@
 {
-  "name": "@hideeer/ui",
+  "name": "@hithere/ui",
   "version": "1.0.0",
   "main": "./index.ts",
   "scripts": {
@@ -15,9 +15,9 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
-    "@hideeer/styled-theme": "workspace:*",
-    "@hideeer/icon" : "workspace:*",
-    "@hideeer/util" : "workspace:*",
+    "@hithere/styled-theme": "workspace:*",
+    "@hithere/icon" : "workspace:*",
+    "@hithere/util" : "workspace:*",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
