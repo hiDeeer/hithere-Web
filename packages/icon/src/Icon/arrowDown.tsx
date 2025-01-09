@@ -14,7 +14,7 @@ export const ArrowDown = ({ color = "#000", ...props }:IconProps) => {
       <path
         d="M18 9L12 15L6 9"
         stroke={color!}
-       stroke-width="2"
+        strokeWidth="2"
       />
     </svg>
   );
