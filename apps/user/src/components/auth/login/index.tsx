@@ -3,6 +3,7 @@ import * as S from "./style";
 import {TextField} from "@hithere/ui";
 import { useLogin } from "@/hooks/auth/useLogin";
 
+
 const Login = () =>{
     const {...login} = useLogin();
     return(
@@ -18,7 +19,8 @@ const Login = () =>{
                 value={login.LoginData.userId}
                 onChange={login.handleLogin}
                 onKeyDown={login.handleKeyDown} 
-                placeholder="아이디를 입력해주세요"       
+                placeholder="아이디를 입력해주세요"  
+                isIcon={true}
                 />
             </S.LoginBox>
         </S.LoginContainer>

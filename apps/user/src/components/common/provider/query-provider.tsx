@@ -16,6 +16,7 @@ const QueryClientProvider = ({ children }: Props) => {
       new QueryClient({
         defaultOptions: {
           queries: {
+            useErrorBoundary: true,
             refetchOnWindowFocus: false,
             retry: 0,
           },
@@ -25,6 +26,7 @@ const QueryClientProvider = ({ children }: Props) => {
 
   return (
     <DeerQueryClientProvider client={queryClient}>
+      
           {children}      
     </DeerQueryClientProvider>
   );

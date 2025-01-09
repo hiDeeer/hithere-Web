@@ -1,25 +1,37 @@
-"use client";
-import { useState, useEffect } from "react";
+// "use client";
+// import { useCallback, useMemo } from "react";
+// import { create } from "zustand";
+// import { DefaultTheme } from "styled-components";
+// import { THEME_KEY } from "@src/constants/theme/theme.contant";
+// import { ETheme } from "@src/enum/theme/theme.enum";
+// import cookie from "@src/lib/cookie/cookie";
+// import { darkTheme, lightTheme } from "@src/style/theme";
 
-export type ThemeMode = "LIGHT" | "DARK";
+// // Zustand Store
+// const useThemeStore = create((set) => ({
+//   currentTheme: ETheme.LIGHT, // Default theme
+//   setCurrentTheme: (theme) => set({ currentTheme: theme }),
+// }));
 
-export const useTheme = () => {
-  const [theme, setTheme] = useState<ThemeMode>(
-    () => (localStorage.getItem("theme") as ThemeMode) || "LIGHT"
-  );
+// const useTheme = () => {
+//   const { currentTheme, setCurrentTheme } = useThemeStore();
 
-  const toggleTheme = () => {
-    const newTheme = theme === "LIGHT" ? "DARK" : "LIGHT";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
+//   const { DARK, LIGHT } = ETheme;
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as ThemeMode;
-    if (savedTheme && savedTheme !== theme) {
-      setTheme(savedTheme);
-    }
-  }, [theme]);
+//   const themeColor = useMemo((): DefaultTheme => {
+//     return currentTheme === DARK ? darkTheme : lightTheme;
+//   }, [DARK, currentTheme]);
 
-  return { theme, toggleTheme };
-};
+//   const handleTheme = useCallback((): void => {
+//     const switchTheme = currentTheme === DARK ? LIGHT : DARK;
+//     window.localStorage.setItem(THEME_KEY, String(switchTheme));
+//     setCurrentTheme(switchTheme);
+//   }, [DARK, LIGHT, currentTheme, setCurrentTheme]);
+
+//   return {
+//     themeColor,
+//     handleTheme,
+//   };
+// };
+
+// export default useTheme;

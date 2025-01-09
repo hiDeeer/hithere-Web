@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { ReactNode } from "react";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-components';
 import GlobalStyle from "./GlobalStyle";
 import { lightTheme, darkTheme } from "./HiThereTheme";
-import { useTheme, ThemeMode } from "@hithere/util";
 
 interface Props {
   children: ReactNode;
@@ -12,11 +11,14 @@ interface Props {
 }
 
 export const HiThereThemeProvider = ({ children,theme }: Props) => {
+  const themeObject = theme =="DARK" ? darkTheme : lightTheme;
 
   return (
-    <ThemeProvider theme={theme === "LIGHT" ? lightTheme : darkTheme}>
+  
+    <StyledComponentsThemeProvider theme={themeObject}>
       <GlobalStyle />
       {children}
-    </ThemeProvider>
+    </StyledComponentsThemeProvider>
+    
   );
 };

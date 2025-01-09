@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Container>
-        {pathname !== "/sign"}
+        {/* {pathname !== "/sign"} */}
         <Wrap>
           {children}
           <div id="modal"></div>

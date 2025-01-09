@@ -1,9 +1,11 @@
-
+"use client";
 
 export default function Home() {
+  
+  
   return (
     <div>
-      user입니다
+      main
     </div>
   );
 }
