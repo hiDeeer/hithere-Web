@@ -34,7 +34,6 @@ export const TextField = ({
   errorMessage,
   isIcon=false,
 }: TextFieldProps) => {
-  const theme = styledUseTheme();
   const [showPassword, setShowPassword] = useState(false);
   const [isfocus ,setIsFocus] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -58,9 +57,9 @@ export const TextField = ({
     <div style={{ position: "relative" }}>
       {Label !== "" ? <StyledSupportingText >{Label}</StyledSupportingText> : ""}
       <StyledTextField
-       isError={Type=="Error"}
-       isFocused={isfocus}
-       isDisabled={Type=="Disabled"}
+       $isError={Type=="Error"}
+       $isFocused={isfocus}
+       $isDisabled={Type=="Disabled"}
         >
         <Text_Field
           id={id}
@@ -71,8 +70,8 @@ export const TextField = ({
           placeholder={placeholder}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
-          isDisabled={Type=="Disabled"}
-          isActive={Type=="Active"}
+          $isDisabled={Type=="Disabled"}
+          $isActive={Type=="Active"}
           type={
             inputType === "password" ? (showPassword ? "text" : "password") : "text"
           }
@@ -83,11 +82,11 @@ export const TextField = ({
           }}
         />
         {isIcon ? inputType === "text" ? (
-            <CloseRing onClick={handleClear} color={Type=="Error" ? theme.StatusNegative :theme.LineNormal}/>
+            <CloseRing onClick={handleClear} />
         ) : showPassword ? (
-          <OpenEye onClick={changePasswordState} color={Type=="Error" ? theme.StatusNegative :theme.LineNormal} />
+          <OpenEye onClick={changePasswordState} />
         ) : (
-          <CloseEye onClick={changePasswordState} color={Type=="Error" ? theme.StatusNegative :theme.LineNormal}/>
+          <CloseEye onClick={changePasswordState} />
         ) : ""}
       </StyledTextField>
       {Type=="Error" ? <ErrorMessage>{errorMessage}</ErrorMessage> : ""}
@@ -97,9 +96,9 @@ export const TextField = ({
 
 
 const StyledTextField = styled.div<{
-  isFocused:boolean;
-  isError:boolean;
-  isDisabled:boolean;
+  $isFocused:boolean;
+  $isError:boolean;
+  $isDisabled:boolean;
   }>`
   display: flex;
   height: 48px;
@@ -109,13 +108,13 @@ const StyledTextField = styled.div<{
   flex-shrink: 0;
   border-radius: 12px;
   border: 1px solid;
-  border-color: ${({ isFocused,isError,theme }) => isFocused ? theme.PrimaryNormal : isError ? theme.StatusNegative : theme.LineNormal};
-  background: ${({ isFocused, isError, isDisabled, theme }) =>
-    isFocused
+  border-color: ${({ $isFocused,$isError,theme }) => $isFocused ? theme.PrimaryNormal : $isError ? theme.StatusNegative : theme.LineNormal};
+  background: ${({ $isFocused, $isError, $isDisabled, theme }) =>
+    $isFocused
       ? hexToRgba('#FFA800', 0.03)
-      : isError
+      : $isError
       ? hexToRgba('#FF4242', 0.03)
-      : isDisabled
+      : $isDisabled
       ? theme.FillNormal
       : theme.BackgroundNormal};
   
@@ -140,8 +139,8 @@ const StyledTextField = styled.div<{
 `;
 
 const Text_Field = styled.input<{
-  isDisabled:boolean;
-  isActive:boolean;
+  $isDisabled:boolean;
+  $isActive:boolean;
   }>`
   &::placeholder {
     font-family: Pretendard;
@@ -149,10 +148,10 @@ const Text_Field = styled.input<{
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
-    color: ${({  isDisabled , isActive, theme }) => isActive ? theme.LabelNeutral : isDisabled ? theme.LabelDisable : theme.LabelNeutral};
+    color: ${({  $isDisabled , $isActive, theme }) => $isActive ? theme.LabelNeutral : $isDisabled ? theme.LabelDisable : theme.LabelNeutral};
   }
   background-color: transparent;
-  color: ${({ isDisabled, isActive, theme }) => isActive ? theme.LabelNeutral : isDisabled ? theme.LabelDisable : theme.LabelNeutral };
+  color: ${({ $isDisabled, $isActive, theme }) => $isActive ? theme.LabelNeutral : $isDisabled ? theme.LabelDisable : theme.LabelNeutral };
   display: flex;
   width: 80%;
   height: 100%;

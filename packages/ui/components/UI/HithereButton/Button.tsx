@@ -24,9 +24,9 @@ export const Button =({
     }:ButtonProps)=>{
 return(
     <StyledButton
-    radius={radius}
-    size={size}
-    type={type}
+    $radius={radius}
+    $size={size}
+    $type={type}
     onClick={onClick}
     >
     {children}
@@ -35,24 +35,24 @@ return(
 }
 
 const StyledButton = styled.div<{
-    radius?:ShapeSizeType,
-    size:ButtonSize,
-    type:ButtonType
+    $radius?:ShapeSizeType,
+    $size:ButtonSize,
+    $type:ButtonType
 }>`
     display: flex;
     cursor: pointer;
     justify-content: center;
     align-items: center;
-    width: ${({ size }) => size=="Large" ? "120px": size=="Medium" ? "97px" : "75px"};
-    height: ${({ size }) => size=="Large" ? "57px": size=="Medium" ? "51px" : "45px"};
-    ${({ radius }) => radius && HiDeerShape[radius]} 
-    background-color: ${({type,theme})=>type=="Default" ? theme.PrimaryNormal : type=="Stroke" ? theme.BackgroundNormal : "rgba(255, 168, 0, 0.40)"};
-    border: ${({ type, theme }) =>
-    type === "Stroke" || type === "ColorStroke"
+    width: ${({ $size }) => $size=="Large" ? "120px": $size=="Medium" ? "97px" : "75px"};
+    height: ${({ $size }) => $size=="Large" ? "57px": $size=="Medium" ? "51px" : "45px"};
+    ${({ $radius }) => $radius && HiDeerShape[$radius]} 
+    background-color: ${({$type,theme})=>$type=="Default" ? theme.PrimaryNormal : $type=="Stroke" ? theme.BackgroundNormal : "rgba(255, 168, 0, 0.40)"};
+    border: ${({ $type, theme }) =>
+    $type === "Stroke" || $type === "ColorStroke"
       ? `1px solid ${
-          type === "ColorStroke" ? theme.PrimaryNormal : theme.LineNormal
+          $type === "ColorStroke" ? theme.PrimaryNormal : theme.LineNormal
         }`
       : "none"};
-    color: ${({theme,type})=> type=="Stroke" ? theme.LabelStrong : type=="ColorStroke" ? theme.LabelNormal : theme.StaticWhite };
+    color: ${({theme,$type})=> $type=="Stroke" ? theme.LabelStrong : $type=="ColorStroke" ? theme.LabelNormal : theme.StaticWhite };
 
 `
