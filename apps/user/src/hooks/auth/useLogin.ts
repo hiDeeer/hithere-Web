@@ -10,7 +10,7 @@ export const useLogin = () => {
       });
 
 
-      const handleSignUpData = useCallback(
+      const handleSignInData = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>): void => {
           const {  name, value } = e.target;
           setLoginData((prev) => ({ ...prev, [name]: value }));
@@ -40,6 +40,6 @@ export const useLogin = () => {
         setLoginData,
         handleKeyDown,
         handleLogin,
-        handleSignUpData,
+        handleSignInData,
     }
 }

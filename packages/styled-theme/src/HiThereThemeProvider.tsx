@@ -14,11 +14,9 @@ export const HiThereThemeProvider = ({ children,theme }: Props) => {
   const themeObject = theme =="DARK" ? darkTheme : lightTheme;
 
   return (
-  
     <StyledComponentsThemeProvider theme={themeObject}>
       <GlobalStyle />
       {children}
     </StyledComponentsThemeProvider>
-    
   );
 };

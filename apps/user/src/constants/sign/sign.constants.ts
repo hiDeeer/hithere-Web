@@ -11,13 +11,3 @@ export const SIGN_SECTION_NAME = [
   ] as const;
 
 
-export const SIGN_DATA={
-  memberId: "",
-  memberPassword: "",
-  memberChckPassword: "",
-  memberName: "",
-  memberEmail: "",
-  memberSchool: "",
-  authCode: "",
-  memberFcmToken: "",
-}
