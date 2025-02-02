@@ -26,7 +26,6 @@ const QueryClientProvider = ({ children }: Props) => {
 
   return (
     <DeerQueryClientProvider client={queryClient}>
-      
           {children}      
     </DeerQueryClientProvider>
   );

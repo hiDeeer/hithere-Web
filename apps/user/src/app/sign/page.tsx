@@ -46,7 +46,7 @@ const Auth = () => {
         {section === "login" ? (
           <Login setSection={handleSectionChange} setState={setState} />
         ) : (
-          <Sign setSection={handleSectionChange} />
+          <Sign section={section} setSection={handleSectionChange} />
         )}
       </S.AuthComponents>
     </S.AuthContainer>
